@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Declare variables */
+:root {
+  --main-color: #dc143c;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(7, 7, 20);
+}
+
+.gray-heart {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.gray-heart::before,
+.gray-heart::after {
+  content: "";
+  background: white;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+.gray-heart::before {
+  top: -50px;
+  left: 0px;
+}
+
+.gray-heart::after {
+  top: 0px;
+  left: 50px;
+}
+
+.red-heart {
+  background: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  transform: rotate(-45deg);
+  visibility: hidden;
+}
+
+.red-heart::before,
+.red-heart::after {
+  content: "";
+  background: var(--main-color);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+.red-heart::before {
+  top: -50px;
+  left: 0px;
+}
+
+.red-heart::after {
+  top: 0px;
+  left: 50px;
+}
+
+.red-heart.animation {
+  animation: pop 0.9s linear;
+  visibility: visible;
+}
+
+.gray-heart.fill-color {
+  background: var(--main-color);
+}
+
+.gray-heart.fill-color::before,
+.gray-heart.fill-color::after {
+  background: var(--main-color);
+}
+
+@keyframes pop {
+  100% {
+    transform: scale(1.7) rotate(-45deg);
+    opacity: 0;
+  }
+}
